@@ -1,0 +1,207 @@
+/* ===== 全域變數：改這裡就能換配色 ===== */
+:root {
+  --accent: #2563eb;      /* 主色：藍色 */
+  --accent-dark: #1e40af; /* 深藍，用於 hover */
+  --cream: #fdf6e3;       /* 奶油背景 */
+  --text: #1f2937;        /* 主要文字色 */
+  --card-bg: #ffffff;     /* 卡片背景 */
+  --max-width: 1000px;    /* 內容最大寬度 */
+}
+
+/* ===== 基本重置 ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, "Noto Sans TC", sans-serif;
+  background-color: var(--cream);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* ===== 導覽列 ===== */
+.site-header {
+  background-color: var(--accent);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.logo {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.25rem 0.4rem;
+  border-radius: 4px;
+}
+
+/* 鍵盤焦點要看得見 */
+.nav-links a:hover,
+.nav-links a:focus {
+  background-color: var(--accent-dark);
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* ===== 歡迎區 ===== */
+.hero {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: var(--accent-dark);
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 1.8rem;
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--accent);
+  color: #ffffff;
+  padding: 0.8rem 1.6rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: var(--accent-dark);
+  outline: 3px solid var(--accent-dark);
+  outline-offset: 3px;
+}
+
+/* ===== 一般區塊 ===== */
+.section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+
+.section h2 {
+  font-size: 1.8rem;
+  color: var(--accent-dark);
+  margin-bottom: 1rem;
+  border-bottom: 3px solid var(--accent);
+  display: inline-block;
+  padding-bottom: 0.3rem;
+}
+
+/* ===== 技能清單 ===== */
+.skills-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.skills-list li {
+  background-color: var(--card-bg);
+  border: 2px solid var(--accent);
+  color: var(--accent-dark);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-weight: bold;
+}
+
+/* ===== 專案卡片 ===== */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.card h3 {
+  color: var(--accent-dark);
+}
+
+.card-link {
+  margin-top: auto;
+  color: var(--accent);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.card-link:hover,
+.card-link:focus {
+  color: var(--accent-dark);
+  outline: 2px solid var(--accent-dark);
+  outline-offset: 2px;
+}
+
+/* ===== 頁尾 ===== */
+.site-footer {
+  background-color: var(--accent-dark);
+  color: #ffffff;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 3rem;
+}
+
+/* ===== 手機版：窄螢幕時改成單欄 ===== */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}

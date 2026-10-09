@@ -1,207 +1,336 @@
-/* ===== 全域變數：改這裡就能換配色 ===== */
 :root {
-  --accent: #2563eb;      /* 主色：藍色 */
-  --accent-dark: #1e40af; /* 深藍，用於 hover */
-  --cream: #fdf6e3;       /* 奶油背景 */
-  --text: #1f2937;        /* 主要文字色 */
-  --card-bg: #ffffff;     /* 卡片背景 */
-  --max-width: 1000px;    /* 內容最大寬度 */
+  --text: #1d1d1f;
+  --muted: #6e6e73;
+  --link: #0066cc;
+  --bg: #ffffff;
+  --band: #f5f5f7;
+  --dark: #000000;
+  --line: rgba(0, 0, 0, 0.08);
+  --radius: 18px;
+  --nav-h: 48px;
+  --max: 980px;
 }
 
-/* ===== 基本重置 ===== */
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: Arial, "Noto Sans TC", sans-serif;
-  background-color: var(--cream);
+  margin: 0;
   color: var(--text);
-  line-height: 1.7;
+  background: var(--bg);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.47;
+  letter-spacing: -0.022em;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* ===== 導覽列 ===== */
-.site-header {
-  background-color: var(--accent);
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.nav {
   position: sticky;
   top: 0;
-  z-index: 10;
-}
-
-.navbar {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 1rem 1.5rem;
+  z-index: 20;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 0.8rem;
+  height: var(--nav-h);
+  padding: 0 22px;
+  background: rgba(251, 251, 253, 0.82);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--line);
 }
 
-.logo {
-  color: #ffffff;
-  font-weight: bold;
-  font-size: 1.2rem;
+.brand {
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   text-decoration: none;
 }
 
 .nav-links {
-  list-style: none;
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  gap: 28px;
 }
 
 .nav-links a {
-  color: #ffffff;
+  color: #1d1d1f;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  opacity: 0.88;
+}
+
+.nav-links a:hover {
+  opacity: 1;
   text-decoration: none;
-  padding: 0.25rem 0.4rem;
-  border-radius: 4px;
 }
 
-/* 鍵盤焦點要看得見 */
-.nav-links a:hover,
-.nav-links a:focus {
-  background-color: var(--accent-dark);
-  outline: 2px solid #ffffff;
-  outline-offset: 2px;
+.menu-btn {
+  display: none;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 12px;
+  padding: 8px 0;
 }
 
-/* ===== 歡迎區 ===== */
 .hero {
-  max-width: var(--max-width);
+  max-width: var(--max);
   margin: 0 auto;
-  padding: 4rem 1.5rem;
+  padding: 78px 22px 64px;
   text-align: center;
 }
 
-.hero h1 {
-  font-size: 2.5rem;
-  color: var(--accent-dark);
-  margin-bottom: 1rem;
+.kicker {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.022em;
 }
 
-.hero-subtitle {
-  font-size: 1.1rem;
-  margin-bottom: 1.8rem;
+h1 {
+  margin: 0;
+  font-size: clamp(40px, 6vw, 56px);
+  font-weight: 600;
+  line-height: 1.07;
+  letter-spacing: -0.015em;
 }
 
-.btn {
-  display: inline-block;
-  background-color: var(--accent);
-  color: #ffffff;
-  padding: 0.8rem 1.6rem;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
+.lede {
+  max-width: 680px;
+  margin: 14px auto 0;
+  color: var(--muted);
+  font-size: 21px;
+  line-height: 1.38;
+  letter-spacing: -0.016em;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  margin-top: 18px;
+}
+
+.btn,
+.btn.ghost {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--link);
+  font-size: 21px;
+  font-weight: 400;
+  border-radius: 0;
 }
 
 .btn:hover,
-.btn:focus {
-  background-color: var(--accent-dark);
-  outline: 3px solid var(--accent-dark);
-  outline-offset: 3px;
-}
-
-/* ===== 一般區塊 ===== */
-.section {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 2.5rem 1.5rem;
-}
-
-.section h2 {
-  font-size: 1.8rem;
-  color: var(--accent-dark);
-  margin-bottom: 1rem;
-  border-bottom: 3px solid var(--accent);
-  display: inline-block;
-  padding-bottom: 0.3rem;
-}
-
-/* ===== 技能清單 ===== */
-.skills-list {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  margin-top: 1rem;
-}
-
-.skills-list li {
-  background-color: var(--card-bg);
-  border: 2px solid var(--accent);
-  color: var(--accent-dark);
-  padding: 0.5rem 1rem;
-  border-radius: 999px;
-  font-weight: bold;
-}
-
-/* ===== 專案卡片 ===== */
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-.card {
-  background-color: var(--card-bg);
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-.card h3 {
-  color: var(--accent-dark);
-}
-
-.card-link {
-  margin-top: auto;
-  color: var(--accent);
-  font-weight: bold;
+.btn.ghost:hover {
   text-decoration: underline;
 }
 
-.card-link:hover,
-.card-link:focus {
-  color: var(--accent-dark);
-  outline: 2px solid var(--accent-dark);
-  outline-offset: 2px;
+.stamp {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin: 42px auto 0;
+  max-width: 760px;
+  text-align: left;
 }
 
-/* ===== 頁尾 ===== */
-.site-footer {
-  background-color: var(--accent-dark);
-  color: #ffffff;
+.stamp p {
+  margin: 0;
+  flex: 1;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.stamp strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-transform: none;
+}
+
+section {
+  padding: 80px 22px;
+}
+
+section:nth-of-type(odd) {
+  background: var(--band);
+}
+
+h2 {
+  max-width: var(--max);
+  margin: 0 auto 8px;
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
   text-align: center;
-  padding: 1.5rem;
-  margin-top: 3rem;
 }
 
-/* ===== 手機版：窄螢幕時改成單欄 ===== */
-@media (max-width: 600px) {
-  .hero h1 {
-    font-size: 1.9rem;
-  }
+.section-note {
+  max-width: 640px;
+  margin: 0 auto 36px;
+  color: var(--muted);
+  font-size: 19px;
+  line-height: 1.4;
+  text-align: center;
+}
 
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
+.grid,
+.split {
+  display: grid;
+  gap: 12px;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.split {
+  grid-template-columns: 1fr 1fr;
+}
+
+.card,
+.panel,
+.panel.light {
+  background: #ffffff;
+  color: var(--text);
+  border: 0;
+  border-radius: var(--radius);
+  min-height: 220px;
+  padding: 36px 28px 32px;
+  box-shadow: none;
+}
+
+.panel {
+  background: var(--dark);
+  color: #f5f5f7;
+}
+
+.panel p,
+.panel h3 {
+  color: inherit;
+}
+
+.num {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.card h3,
+.panel h3 {
+  margin: 10px 0 8px;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.14;
+}
+
+.card p,
+.panel p,
+.card li {
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.47;
+}
+
+.panel p {
+  color: #a1a1a6;
+}
+
+.panel ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 22px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+}
+
+@media (max-width: 760px) {
+  .menu-btn {
+    display: block;
   }
 
   .nav-links {
+    display: none;
+    position: absolute;
+    top: var(--nav-h);
+    left: 0;
+    right: 0;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0;
+    padding: 8px 22px 16px;
+    background: rgba(251, 251, 253, 0.96);
+    backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--line);
   }
 
-  .project-grid {
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 12px 0;
+    font-size: 14px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .grid,
+  .split,
+  .stamp {
     grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+
+  .hero {
+    padding-top: 54px;
+  }
+
+  .lede,
+  .btn,
+  .btn.ghost {
+    font-size: 17px;
+  }
+
+  section {
+    padding: 56px 18px;
   }
 }
